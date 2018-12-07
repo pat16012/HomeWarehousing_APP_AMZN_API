@@ -1,0 +1,94 @@
+{
+  "project_info": {
+    "project_number": "151494616034",
+    "firebase_url": "https://source-code-c7119.firebaseio.com",
+    "project_id": "source-code-c7119",
+    "storage_bucket": "source-code-c7119.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:151494616034:android:09546560b4505797",
+        "android_client_info": {
+          "package_name": "com.google.firebase.samples.apps.mlkit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "151494616034-0dmu4q8q496p4gdp7sp7ktjfdmroa08n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.google.firebase.samples.apps.mlkit",
+            "certificate_hash": "2e8d7be97acbb27e2ec644ccaed642c4295e516a"
+          }
+        },
+        {
+          "client_id": "151494616034-ouj40l7q5ntves2e6sjvf859oqvcthun.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.google.firebase.samples.apps.mlkit",
+            "certificate_hash": "e4a30af81dd63d84195d58d1b1c1775d208501cd"
+          }
+        },
+        {
+          "client_id": "151494616034-te0rd18jkjivch9tti38islqk7gmskfi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDFDXEoW3WjRKd6K9xilQXA9WGyIISS-A8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "151494616034-te0rd18jkjivch9tti38islqk7gmskfi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:151494616034:android:1e22ab0b15b82bf0",
+        "android_client_info": {
+          "package_name": "homewarehouse.project.homewarehouse_amzn_api"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "151494616034-te0rd18jkjivch9tti38islqk7gmskfi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDFDXEoW3WjRKd6K9xilQXA9WGyIISS-A8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
