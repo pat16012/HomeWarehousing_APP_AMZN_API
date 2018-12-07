@@ -38,7 +38,7 @@ public class MainPage extends AppCompatActivity
         barcodeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainPage.this, ChooserActivity.class);
+                Intent intent = new Intent(MainPage.this, LivePreviewActivity.class);
                 startActivity(intent);
             }
         });
