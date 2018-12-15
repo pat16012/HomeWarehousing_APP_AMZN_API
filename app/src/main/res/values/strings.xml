@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">HomeWarehouse_AMZN_API</string>
+
+    <string name="title_activity_json_results">JsonResultsActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
 </resources>
