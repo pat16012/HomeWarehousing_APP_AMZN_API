@@ -18,6 +18,7 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.List;
 
 public class JsonResultsActivity extends AppCompatActivity {
@@ -25,8 +26,11 @@ public class JsonResultsActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
     //private String url = "https://api.indix.com/v2/summary/products?countryCode=US&upc=045496590093&app_key=QYlu6P6XSF5EAwsTGvo3tg2fjnGIZpfH";
-    private RecyclerAdapter adapter;
-    private String barcode;
+    //private RecyclerAdapter adapter;
+    private String barcode = "045496590093";
+
+    private MyItemRecyclerViewAdapter myItemRecyclerViewAdapter;
+
 
     private static final String APP_KEY = "QYlu6P6XSF5EAwsTGvo3tg2fjnGIZpfH";
     private static final String URL_ENDPOINT_UPC = "https://api.indix.com/v2/summary/products?countryCode=US";
@@ -39,25 +43,31 @@ public class JsonResultsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_json_results_activity);
 
-        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        recyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true); // Improves performance
 
-        Button homeButton = (Button) findViewById(R.id.home_button);
+       // Button homeButton = (Button) findViewById(R.id.home_button);
 
         // Starts new thread for getInformation
-        newThread(barcode);
+       // newThread(barcode);
+
+        new Thread(new Runnable() {
+            public void run() {
+                getInformation();
+            }
+        }).start();
 
 
 
-        homeButton.setOnClickListener(new View.OnClickListener() {
+        /*homeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(JsonResultsActivity.this, MainPage.class);
                 startActivity(intent);
             }
-        });
+        });*/
     }
 
     /**
@@ -105,6 +115,8 @@ public class JsonResultsActivity extends AppCompatActivity {
         return getHttpResults(url);
     }
 
+
+    // Takes the barcode and sends to the API for product info to come back.
     public void getInformation() {
 
         GsonBuilder builder = new GsonBuilder();
@@ -120,16 +132,24 @@ public class JsonResultsActivity extends AppCompatActivity {
         // Passes the Json and saves it into class ProductDescription.
         ProductDescription productDescription = gson.fromJson(response,ProductDescription.class);
         List<Product_Info> products = productDescription.result.getProduct_info();
+        myItemRecyclerViewAdapter = new MyItemRecyclerViewAdapter(products);
+        //recyclerView.setAdapter(myItemRecyclerViewAdapter);
 
 
-        //List<Product_Info> products = MainPage.productDatabase.productDao().getProducts();
+        runOnUiThread(new Runnable() {
 
-        adapter = new RecyclerAdapter(products);
-        recyclerView.setAdapter(adapter);
+            @Override
+            public void run() {
+
+                recyclerView.setAdapter(myItemRecyclerViewAdapter);
+
+            }
+        });
 
 
     }
 
+    //Create new thread for going to the API on the internet
     public void newThread(String barcode){
         this.barcode = barcode;
 

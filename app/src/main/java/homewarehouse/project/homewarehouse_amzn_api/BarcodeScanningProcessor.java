@@ -75,13 +75,13 @@ public class BarcodeScanningProcessor extends VisionProcessorBase<List<FirebaseV
 
     graphicOverlay.clear();
 
+    // Sends scanned Barcode to Firebase and returns its value/Data
       for (FirebaseVisionBarcode barcode: barcodes) {
           Rect bounds = barcode.getBoundingBox();
           Point[] corners = barcode.getCornerPoints();
           String rawValue = barcode.getRawValue();
           JsonResultsActivity jsonResultsActivity = new JsonResultsActivity();
           jsonResultsActivity.newThread(rawValue);
-          //Thread.interrupted();
 
       }
 

@@ -1,6 +1,10 @@
 package homewarehouse.project.homewarehouse_amzn_api;
 
+import android.content.Context;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,11 +13,15 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
+import homewarehouse.project.homewarehouse_amzn_api.dummy.DummyContent;
+
 // Extends Adapter and specify the generic type
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyViewholder> {
+
 
     // Declair list of Product_info Class to hold API Json return.
     private List<Product_Info> list = new ArrayList<>();
@@ -28,6 +36,9 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_view,parent,false);
         return new MyViewholder(view);
     }
+
+
+
 
     //Changed first perameter to MyViewHolder
     @Override
