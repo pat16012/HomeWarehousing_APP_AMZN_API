@@ -34,7 +34,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".json_results_activity"></activity>
+        <activity android:name=".JsonResultsActivity"></activity>
     </application>
 
 </manifest>

@@ -35,6 +35,7 @@ public class MainPage extends AppCompatActivity
             getRuntimePermissions();
         }
 
+
         barcodeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,7 +47,7 @@ public class MainPage extends AppCompatActivity
         warehouseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainPage.this, json_results_activity.class);
+                Intent intent = new Intent(MainPage.this, JsonResultsActivity.class);
                 startActivity(intent);
             }
         });

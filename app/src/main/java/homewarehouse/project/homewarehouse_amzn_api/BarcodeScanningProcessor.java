@@ -13,8 +13,13 @@
 // limitations under the License.
 package homewarehouse.project.homewarehouse_amzn_api;
 
+import android.content.Intent;
+import android.graphics.Point;
+import android.graphics.Rect;
 import android.support.annotation.NonNull;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.Task;
@@ -26,12 +31,15 @@ import com.google.firebase.ml.vision.common.FirebaseVisionImage;
 import java.io.IOException;
 import java.util.List;
 
-/** Barcode Detector Demo. */
+
+/** Barcode Detector */
 public class BarcodeScanningProcessor extends VisionProcessorBase<List<FirebaseVisionBarcode>> {
 
   private static final String TAG = "BarcodeScanProc";
   CharSequence text = "Hello toast!";
   int duration = Toast.LENGTH_SHORT;
+    Button warehouseButton;
+
 
 
   private final FirebaseVisionBarcodeDetector detector;
@@ -65,16 +73,36 @@ public class BarcodeScanningProcessor extends VisionProcessorBase<List<FirebaseV
       @NonNull FrameMetadata frameMetadata,
       @NonNull GraphicOverlay graphicOverlay) {
 
-    graphicOverlay.clear();
+    //graphicOverlay.clear();
+
+      for (FirebaseVisionBarcode barcode: barcodes) {
+          Rect bounds = barcode.getBoundingBox();
+          Point[] corners = barcode.getCornerPoints();
+          String rawValue = barcode.getRawValue();
+          int valueType = barcode.getValueType();
+          JsonResultsActivity jsonResultsActivity = new JsonResultsActivity();
+          jsonResultsActivity.setBarcode(rawValue);
+          jsonResultsActivity.newThread(rawValue);
+
+      }
+
+    /*
     for (int i = 0; i < barcodes.size(); ++i) {
       FirebaseVisionBarcode barcode = barcodes.get(i);
+      String rawValue = barcode.getRawValue();
       BarcodeGraphic barcodeGraphic = new BarcodeGraphic(graphicOverlay, barcode);
+        System.out.println ("Barcode: " + barcode );
       graphicOverlay.add(barcodeGraphic);
+        System.out.println ("Barcode: " + barcode );
+
     }
+    */
+
 
   }
 
-  @Override
+
+    @Override
   protected void onFailure(@NonNull Exception e) {
     Log.e(TAG, "Barcode detection failed " + e);
   }
