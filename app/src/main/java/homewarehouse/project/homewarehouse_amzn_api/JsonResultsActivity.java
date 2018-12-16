@@ -1,5 +1,6 @@
 package homewarehouse.project.homewarehouse_amzn_api;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -30,6 +31,7 @@ public class JsonResultsActivity extends AppCompatActivity {
     private static final String APP_KEY = "QYlu6P6XSF5EAwsTGvo3tg2fjnGIZpfH";
     private static final String URL_ENDPOINT_UPC = "https://api.indix.com/v2/summary/products?countryCode=US";
     private String apiCharset = StandardCharsets.UTF_8.name();
+    private Context context;
 
 
     @Override
@@ -37,10 +39,10 @@ public class JsonResultsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_json_results_activity);
 
-        //recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-        //layoutManager = new LinearLayoutManager(this);
-        //recyclerView.setLayoutManager(layoutManager);
-        //recyclerView.setHasFixedSize(true); // Improves performance
+        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setHasFixedSize(true); // Improves performance
 
         Button homeButton = (Button) findViewById(R.id.home_button);
 
@@ -119,14 +121,6 @@ public class JsonResultsActivity extends AppCompatActivity {
         ProductDescription productDescription = gson.fromJson(response,ProductDescription.class);
         List<Product_Info> products = productDescription.result.getProduct_info();
 
-        /*
-        for(Product_Info product_info :products){
-            String mpid = product_info.getMpid();
-            int upsc = product_info.getUpsc();
-            String brandName = product_info.getBrandName();
-            String title = product_info.getTitle();
-
-        }*/
 
         //List<Product_Info> products = MainPage.productDatabase.productDao().getProducts();
 

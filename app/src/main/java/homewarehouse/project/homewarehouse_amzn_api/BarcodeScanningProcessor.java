@@ -81,7 +81,7 @@ public class BarcodeScanningProcessor extends VisionProcessorBase<List<FirebaseV
           String rawValue = barcode.getRawValue();
           JsonResultsActivity jsonResultsActivity = new JsonResultsActivity();
           jsonResultsActivity.newThread(rawValue);
-          Thread.interrupted();
+          //Thread.interrupted();
 
       }
 
