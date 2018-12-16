@@ -14,9 +14,7 @@ import java.util.Map;
 
 public class Result {
     int count;
-    private RecyclerView recyclerView;
-    private RecyclerView.LayoutManager layoutManager;
-    private RecyclerAdapter adapter;
+
 
 
     @SerializedName("products")
