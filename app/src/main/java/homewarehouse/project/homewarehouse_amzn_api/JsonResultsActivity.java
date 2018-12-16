@@ -37,10 +37,10 @@ public class JsonResultsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_json_results_activity);
 
-        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-        layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setHasFixedSize(true); // Improves performance
+        //recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        //layoutManager = new LinearLayoutManager(this);
+        //recyclerView.setLayoutManager(layoutManager);
+        //recyclerView.setHasFixedSize(true); // Improves performance
 
         Button homeButton = (Button) findViewById(R.id.home_button);
 
