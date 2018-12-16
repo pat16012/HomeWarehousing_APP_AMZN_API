@@ -16,16 +16,26 @@ public class Result {
     int count;
 
 
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
+
+    public List<Product_Info> getProduct_info() {
+        return product_info;
+    }
+
+    public void setProduct_info(List<Product_Info> product_info) {
+        this.product_info = product_info;
+    }
 
     @SerializedName("products")
         List<Product_Info>product_info;
 
 
-
-    public Result(int count, List<Product_Info>product_info){
-        this.count = count;
-        this.product_info =  product_info;
-    }
 
 
 

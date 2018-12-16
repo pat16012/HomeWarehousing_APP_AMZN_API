@@ -1,6 +1,10 @@
 package homewarehouse.project.homewarehouse_amzn_api;
 
 
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
+import android.support.annotation.NonNull;
+
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
@@ -8,12 +12,18 @@ import java.util.List;
 /**
  * This is a container to hold the API Json response informatiom.
  */
+@Entity(tableName = "products")
 public class Product_Info {
-    String mpid;
-    int upsc;
-    String brandName;
-    String title;
 
+    @PrimaryKey
+    @NonNull
+    String mpid;
+
+    int upsc;
+
+    String brandName;
+
+    String title;
 
     public String getMpid() {
         return mpid;
@@ -47,6 +57,12 @@ public class Product_Info {
         this.title = title;
     }
 
+    public Product_Info(String mpid, int upsc, String brandName, String title){
+        this.mpid = mpid;
+        this.upsc = upsc;
+        this.brandName = brandName;
+        this.title = title;
+    }
 
 
 

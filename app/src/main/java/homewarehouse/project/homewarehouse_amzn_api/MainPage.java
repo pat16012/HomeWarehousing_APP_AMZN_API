@@ -1,5 +1,4 @@
 package homewarehouse.project.homewarehouse_amzn_api;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -21,8 +20,10 @@ public class MainPage extends AppCompatActivity
 
     Button barcodeButton;
     Button warehouseButton;
+    Button listButton;
     private static final String TAG = "MainPage";
     private static final int PERMISSION_REQUESTS = 1;
+    public static ProductDatabase productDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,10 +32,11 @@ public class MainPage extends AppCompatActivity
 
         barcodeButton =(Button) findViewById(R.id.scan_barcode_btn);
         warehouseButton = (Button) findViewById(R.id.warehouse_btn);
+        //listButton = (Button) findViewById(R.id.list_btn);
+
         if (!allPermissionsGranted()) {
             getRuntimePermissions();
         }
-
 
         barcodeButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,6 +54,13 @@ public class MainPage extends AppCompatActivity
             }
         });
 
+        /*listButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainPage.this, DisplayList.class);
+                startActivity(intent);
+            }
+        });*/
 
     }
 

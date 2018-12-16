@@ -117,9 +117,21 @@ public class JsonResultsActivity extends AppCompatActivity {
 
         // Passes the Json and saves it into class ProductDescription.
         ProductDescription productDescription = gson.fromJson(response,ProductDescription.class);
-        adapter = new RecyclerAdapter((List<ProductDescription>) productDescription);
-        recyclerView.setAdapter(adapter);
+        List<Product_Info> products = productDescription.result.getProduct_info();
 
+        /*
+        for(Product_Info product_info :products){
+            String mpid = product_info.getMpid();
+            int upsc = product_info.getUpsc();
+            String brandName = product_info.getBrandName();
+            String title = product_info.getTitle();
+
+        }*/
+
+        //List<Product_Info> products = MainPage.productDatabase.productDao().getProducts();
+
+        adapter = new RecyclerAdapter(products);
+        recyclerView.setAdapter(adapter);
 
 
     }

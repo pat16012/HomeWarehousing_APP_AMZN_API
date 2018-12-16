@@ -73,16 +73,15 @@ public class BarcodeScanningProcessor extends VisionProcessorBase<List<FirebaseV
       @NonNull FrameMetadata frameMetadata,
       @NonNull GraphicOverlay graphicOverlay) {
 
-    //graphicOverlay.clear();
+    graphicOverlay.clear();
 
       for (FirebaseVisionBarcode barcode: barcodes) {
           Rect bounds = barcode.getBoundingBox();
           Point[] corners = barcode.getCornerPoints();
           String rawValue = barcode.getRawValue();
-          int valueType = barcode.getValueType();
           JsonResultsActivity jsonResultsActivity = new JsonResultsActivity();
-          jsonResultsActivity.setBarcode(rawValue);
           jsonResultsActivity.newThread(rawValue);
+          Thread.interrupted();
 
       }
 

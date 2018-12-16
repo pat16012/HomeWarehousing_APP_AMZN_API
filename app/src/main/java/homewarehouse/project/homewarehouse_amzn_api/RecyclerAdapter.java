@@ -16,9 +16,9 @@ import java.util.List;
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyViewholder> {
 
     // Declair list of Product_info Class to hold API Json return.
-    private List<ProductDescription> list = new ArrayList<>();
+    private List<Product_Info> list = new ArrayList<>();
 
-    RecyclerAdapter(List<ProductDescription> list){
+    RecyclerAdapter(List<Product_Info> list){
         this.list = list;
     }
 
@@ -34,9 +34,9 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
     public void onBindViewHolder(MyViewholder holder, int position) {
 
         //Setting text for the activity view, from the List.
-        // holder.UPSC.setText(Integer.toString(list.get(position).getUpsc()));
-        //holder.Title.setText(list.get(position).getTitle());
-        //holder.BrandName.setText(list.get(position).getBrandName());
+        holder.UPSC.setText(Integer.toString(list.get(position).getUpsc()));
+        holder.Title.setText(list.get(position).getTitle());
+        holder.BrandName.setText(list.get(position).getBrandName());
     }
 
     // Return size of the List
